@@ -1,23 +1,28 @@
-#!/usr/bin/env python3
+# Worker - processes tasks from the queue in background
+# WHY separate process? Web server = fast responses, Worker = slow tasks
+# This separation prevents slow work from blocking user requests
+
 import redis
 from rq import SimpleWorker, Queue
 import sys
 import os
 
-# Make sure we can import tasks
+# Let Python find our tasks.py file
+# Why this path setup? Worker runs separately, needs to find task functions
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 if __name__ == '__main__':
-    # Import here to make sure it's available
     import tasks
     
-    # Connect to Redis
+    # Connect to Redis (same one as web app uses)
+    # Why same Redis? Shared queue between web app and worker
     redis_conn = redis.Redis(host='localhost', port=6379)
     
-    # Create a queue
+    # Create queue (worker reads from here)
     q = Queue(connection=redis_conn)
     
-    # Create and start the worker (using SimpleWorker for Windows compatibility)
+    # Start worker (uses SimpleWorker for Windows compatibility)
+    # Why SimpleWorker? Regular Worker uses Unix features Windows doesn't have
     worker = SimpleWorker([q], connection=redis_conn)
-    print("Starting worker...")
-    worker.work()
+    print("Worker started. Waiting for tasks...")
+    worker.work()  # Runs forever until Ctrl+C, checking queue constantly
