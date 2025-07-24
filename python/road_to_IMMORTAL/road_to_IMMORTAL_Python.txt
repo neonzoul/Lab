@@ -1,4 +1,14 @@
 Road to IMMORTAL Python
+.
+Start build these 3 Projects.
+without vibe coding.
+https://www.youtube.com/watch?v=vEQ8CXFWLZU&t=611s&ab_channel=InternetMadeCoder
+.
+Optional
+https://www.youtube.com/watch?v=QjAHcKPUaFM&t=410s&ab_channel=InternetMadeCoder
+.
+And then
+.
 To reach Ascendant rank by building a workflow automation tool's backend, focus on these key areas. Mastering them will pave your path to Immortal.
 
 Core Engine (Focus: Asynchronous Processing)
