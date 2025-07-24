@@ -1,0 +1,30 @@
+Road to IMMORTAL Python
+To reach Ascendant rank by building a workflow automation tool's backend, focus on these key areas. Mastering them will pave your path to Immortal.
+
+Core Engine (Focus: Asynchronous Processing)
+
+Workflows involve waiting for external services. Use Python's built-in asyncio library to handle these delays efficiently without blocking the entire application. This is the heart of the engine.
+
+Nodes (Focus: Plugin Architecture)
+
+The tool's power comes from its nodes (e.g., "Read Sheet," "Send Message"). Create a dynamic plugin system using the built-in importlib to discover and load new nodes on the fly.
+
+Web Layer (APIs & Webhooks)
+
+To trigger workflows and manage them externally, build a web interface. FastAPI is ideal due to its native asyncio support and built-in data validation, perfect for defining node inputs/outputs.
+
+Connectors (Service Interaction)
+
+Nodes need to communicate with third-party APIs. Use httpx, a modern HTTP client that supports asynchronous requests, to integrate seamlessly with your asyncio core.
+
+Scheduling (Timed Triggers)
+
+For workflows that run on a schedule, integrate APScheduler, a powerful library for managing timed jobs within your application.
+
+State Management (Focus: Database & Credentials)
+
+Store workflow definitions, execution logs, and user credentials securely. Use SQLModel or SQLAlchemy for database interaction and cryptography to encrypt sensitive API keys.
+
+The Path Forward:
+
+Successfully building and understanding this system is your trial for Ascendant. True mastery and the subsequent leap to Immortal will come from evolving this "AutomateOS" into a robust, real-world application.
